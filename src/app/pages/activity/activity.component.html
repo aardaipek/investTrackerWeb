@@ -1,11 +1,5 @@
-<button
-  type="button"
-  class="btn btn-outline-success m-1 btn-sm"
-  data-bs-toggle="modal"
-  data-bs-target="#myModal"
->
-  Add Activity
-</button>
+<button type="button" class="btn btn-outline-warning btn-sm" (click)="back()">Back</button>
+<button type="button" class="btn btn-outline-success m-1 btn-sm" data-bs-toggle="modal" data-bs-target="#myModal"> Add Activity </button>
 <div class="main-content">
   <table class="table">
     <thead>
@@ -48,32 +42,41 @@
 </div>
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" (saveItem)="saveItem()">
-    <div class="modal-dialog">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" (saveItem)="saveActivity()">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Item</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <h5 class="modal-title">Add New Activity</h5>
         </div>
-        <div class="modal-body">
-          <form (ngSubmit)="saveItem()">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" [(ngModel)]="editedItem.name" name="name">
-            </div>
-            <div class="form-group">
-              <label for="quantity">Quantity</label>
-              <input type="number" class="form-control" id="quantity" [(ngModel)]="editedItem.quantity" name="quantity">
-            </div>
-            <div class="form-group">
-              <label for="price">Price</label>
-              <input type="number" class="form-control" id="price" [(ngModel)]="editedItem.price" name="price">
-            </div>
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
-          </form>
+        <div class="modal-body d-flex">
+          <div class="container-fluid">
+            <form (ngSubmit)="saveActivity()">
+              <div class="row">
+                <div class="form-group">
+                  <div class="col">
+                    <label for="name">Label</label>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" id="name" [(ngModel)]="draftActivity.name" name="name" placeholder="Label" aria-label="Label">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" class="form-control" id="quantity" [(ngModel)]="draftActivity.quantity" name="quantity">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label for="price">Purchase Price</label>
+                  <input type="number" class="form-control" id="price" [(ngModel)]="draftActivity.price" name="price">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save Activity</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+</div>

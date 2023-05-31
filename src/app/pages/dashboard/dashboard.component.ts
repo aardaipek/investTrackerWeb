@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   async ngOnInit() {
     this.user = await this.requestService.getUser('developer.ardaipek@gmail.com');
     if(this.user && this.user._id){
-      this.dashboards = await this.requestService.getDashboard(this.user._id);
+      this.dashboards = await this.requestService.getUserDashboards(this.user._id);
     }
   }
 
