@@ -4,13 +4,15 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ActivityComponent } from './pages/activity/activity.component';
+import { PortfolioDetailComponent } from './pages/portfolio-detail/portfolio-detail.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo:'/dashboard', pathMatch: 'full' },
   { path: 'user', component: ProfileComponent },
   { path: 'portfolio', component: PortfolioComponent },
-  { path: 'dashboard/:id/portfolio/:id', component: ActivityComponent },
+  { path: 'dashboard/:dashboardId/portfolio/:portfolioId', component: PortfolioDetailComponent },
+  { path: 'dashboard/:id/portfolio/:id/activities', component: ActivityComponent },
   { path: 'dashboard/:id/portfolio', component: PortfolioComponent },
 ];
 

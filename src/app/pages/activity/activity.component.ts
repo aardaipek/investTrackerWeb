@@ -27,7 +27,7 @@ export class ActivityComponent implements OnInit {
     this.sub = await this.route.params.subscribe(params => {
       this.portfolioId = params['id'];
    });
-  this.activities = await this.requestService.getActivity(this.portfolioId)
+  this.activities = await this.requestService.getAllActivities(this.portfolioId)
    
   }
 

@@ -36,7 +36,7 @@ export class RequestService {
     return response;
   }
 
-  public async getActivity(portfolioId: string): Promise<any> {
+  public async getAllActivities(portfolioId: string): Promise<any> {
     const body = { portfolioId };
     const response = await this.sender(body,'http://localhost:3000/api/activity/getAllActivity');
     return response;
