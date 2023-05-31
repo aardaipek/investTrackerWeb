@@ -24,13 +24,19 @@ export class RequestService {
     return response;
   }
 
-  public async getDashboard(userId: string): Promise<any> {
+  public async getUserDashboards(userId: string): Promise<any> {
     const body = { userId };
+    const response = await this.sender(body,'http://localhost:3000/api/dashboard/getUserDashboards');
+    return response;
+  }
+
+  public async getDashboard(dashboardId: string): Promise<any> {
+    const body = { dashboardId };
     const response = await this.sender(body,'http://localhost:3000/api/dashboard/getDashboard');
     return response;
   }
 
-  public async getActivity(portfolioId: string): Promise<any> {
+  public async getAllActivities(portfolioId: string): Promise<any> {
     const body = { portfolioId };
     const response = await this.sender(body,'http://localhost:3000/api/activity/getAllActivity');
     return response;
@@ -39,6 +45,11 @@ export class RequestService {
   public async getAllPortfolio(dashboardId: string): Promise<any> {
     const body = { dashboardId };
     const response = await this.sender(body,'http://localhost:3000/api/portfolio/getAllPortfolio');
+    return response;
+  }
+
+  public async addActivity(data: any): Promise<any> {
+    const response = await this.sender(data,'http://localhost:3000/api/activity/create');
     return response;
   }
 }

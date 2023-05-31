@@ -1,0 +1,35 @@
+<button type="button" class="btn btn-outline-warning btn-sm" (click)="back()">Back</button>
+<button type="button" class="btn btn-outline-success m-1 btn-sm" routerLink="/dashboard/{{dashboardId}}/portfolio/{{portfolioId}}/activities">See All Activities</button>
+
+<div class="container mt-5 px-2">
+  <div class="table-responsive">
+    <table class="table table-responsive table-borderless table-striped table-hover">
+      <thead>
+        <tr class="table-secondary">
+          <th scope="col" width="20%">Name</th>
+          <th scope="col" width="10%">Stock</th>
+          <th scope="col" width="10%">Cost</th>
+          <th scope="col" width="10%">Total Cost</th>
+          <!-- <th scope="col" width="10%">Current Price</th>
+          <th scope="col" width="10%">Current Value</th>
+          <th scope="col" width="10%">Status %</th>
+          <th scope="col" width="10%">Status $</th>
+          <th scope="col" width="10%"><span>Weight</span></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of averagePrices">
+          <td>{{item.name}}</td>
+          <td>{{item.accumulatedQuantity}}</td>
+          <td>{{item.averagePrice}}</td>
+          <td>{{item.accumulatedPrice}}</td>
+          <!-- <td>123$</td>
+          <td>1.850$</td>
+          <td>35%</td>
+          <td>650$</td>
+          <td>4%</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

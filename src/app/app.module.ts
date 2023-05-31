@@ -11,6 +11,7 @@ import { ActivityComponent } from './pages/activity/activity.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
+import { PortfolioDetailComponent } from './pages/portfolio-detail/portfolio-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PortfolioComponent } from './pages/portfolio/portfolio.component';
     ActivityComponent,
     DashboardComponent,
     ProfileComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    PortfolioDetailComponent
   ],
   imports: [
     BrowserModule,

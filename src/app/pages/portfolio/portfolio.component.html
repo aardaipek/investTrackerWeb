@@ -1,4 +1,13 @@
-<div class="nav-scroller border-bottom">
+<div class="d-flex">
+    <button type="button" class="btn btn-outline-warning m-1 btn-sm" (click)="back()">Back</button>
+    <h4 class="display-7 mx-3">
+        Your
+        <small class="text-body-secondary">{{dashboard.name}}</small>
+        Portfolios
+    </h4>
+</div>
+
+<div class="nav-scroller border-bottom mt-4">
     <nav class="nav justify-content-center">
         <div class="card text-bg-light mb-2 mx-3" style="max-height:5vh" *ngFor="let item of portfolios">
             <div class="card-body">
@@ -7,3 +16,4 @@
           </div>
     </nav>
 </div>
+
