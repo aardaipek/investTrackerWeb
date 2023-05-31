@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IUser } from '../model/interfaces/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RequestService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  async getUser(email:string): Promise<any> {
+  private async sender(body:any, url:string): Promise<any> {
     try {
-      const body = { email: email };
       const headers = new HttpHeaders().set('Content-Type', 'application/json');
-      const response = await this.http.post('http://localhost:3000/api/user/getUser', body, { headers }).toPromise();
+      const response = await this.http.post(url, body, { headers }).toPromise();
       return response;
     } catch (error) {
       console.error('Error occurred while sending request:', error);
@@ -20,39 +18,27 @@ export class RequestService {
     }
   }
 
-  async getDashboard(userId:string): Promise<any> {
-    try {
-      const body = { userId: userId };
-      const headers = new HttpHeaders().set('Content-Type', 'application/json');
-      const response = await this.http.post('http://localhost:3000/api/dashboard/getDashboard', body, { headers }).toPromise();
-      return response;
-    } catch (error) {
-      console.error('Error occurred while sending request:', error);
-      throw error;
-    }
+  public async getUser(email: string): Promise<any> {
+    const body = { email };
+    const response = await this.sender(body,'http://localhost:3000/api/user/getUser');
+    return response;
   }
 
-  async getActivity(portfolioId:string): Promise<any> {
-    try {
-      const body = { portfolioId: portfolioId };
-      const headers = new HttpHeaders().set('Content-Type', 'application/json');
-      const response = await this.http.post('http://localhost:3000/api/activity/getAllActivity', body, { headers }).toPromise();
-      return response;
-    } catch (error) {
-      console.error('Error occurred while sending request:', error);
-      throw error;
-    }
+  public async getDashboard(userId: string): Promise<any> {
+    const body = { userId };
+    const response = await this.sender(body,'http://localhost:3000/api/dashboard/getDashboard');
+    return response;
   }
 
-  async getAllPortfolio(dashboardId:string): Promise<any> {
-    try {
-      const body = { dashboardId: dashboardId };
-      const headers = new HttpHeaders().set('Content-Type', 'application/json');
-      const response = await this.http.post('http://localhost:3000/api/portfolio/getAllPortfolio', body, { headers }).toPromise();
-      return response;
-    } catch (error) {
-      console.error('Error occurred while sending request:', error);
-      throw error;
-    }
+  public async getActivity(portfolioId: string): Promise<any> {
+    const body = { portfolioId };
+    const response = await this.sender(body,'http://localhost:3000/api/activity/getAllActivity');
+    return response;
+  }
+
+  public async getAllPortfolio(dashboardId: string): Promise<any> {
+    const body = { dashboardId };
+    const response = await this.sender(body,'http://localhost:3000/api/portfolio/getAllPortfolio');
+    return response;
   }
 }

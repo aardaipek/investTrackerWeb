@@ -42,30 +42,5 @@ export class ActivityComponent implements OnInit {
     alert(item._id)
   }
 
-  saveItem(){}
-
-  // saveItem(): void {
-  //   console.log('Saving item:', this.editedItem);
-  //   const { name, price, quantity } = this.editedItem;
-
-  //   const body = {
-  //     name: name,
-  //     type: 1,
-  //     portfolioId:'647654395b96793b069070c4',
-  //     purchaseDate:this.datepipe.transform((new Date), 'dd/MM/yyyy'),
-  //     quantity:quantity,
-  //     price:price
-  // }
-  //   const headers = new HttpHeaders().set('Content-Type', 'application/json');
-  //   this.http.post<any[]>('http://localhost:3000/api/activity/create', body, { headers }).subscribe(
-  //     (data: any[]) => {
-  //       this.activities = data;
-  //     },
-  //     (error) => {
-  //       console.log('Error fetching data:', error);
-  //     }
-  //   );
-  // }
-
-
+  saveItem(): void {}
 }
