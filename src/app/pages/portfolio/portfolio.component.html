@@ -1,0 +1,9 @@
+<div class="nav-scroller border-bottom">
+    <nav class="nav justify-content-center">
+        <div class="card text-bg-light mb-2 mx-3" style="max-height:5vh" *ngFor="let item of portfolios">
+            <div class="card-body">
+                <a class="nav-item nav-link link-body-emphasis" href="#" routerLink="/dashboard/{{item.dashboardId}}/portfolio/{{item._id}}" >{{item.name}}</a>
+            </div>
+          </div>
+    </nav>
+</div>
