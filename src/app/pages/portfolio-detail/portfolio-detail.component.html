@@ -5,26 +5,26 @@
   <div class="table-responsive">
     <table class="table table-responsive table-borderless table-striped table-hover">
       <thead>
-        <tr class="table-secondary">
-          <th scope="col" width="20%">Name</th>
+        <tr class="table-secondary text-center">
+          <th scope="col" width="10%">Name</th>
           <th scope="col" width="10%">Stock</th>
           <th scope="col" width="10%">Cost</th>
           <th scope="col" width="10%">Total Cost</th>
-          <!-- <th scope="col" width="10%">Current Price</th>
-          <th scope="col" width="10%">Current Value</th>
+          <th scope="col" width="20%">Current Price</th>
+          <!-- <th scope="col" width="10%">Current Value</th>
           <th scope="col" width="10%">Status %</th>
           <th scope="col" width="10%">Status $</th>
           <th scope="col" width="10%"><span>Weight</span></th> -->
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of averagePrices">
+        <tr class="text-center" *ngFor="let item of averagePrices">
           <td>{{item.name}}</td>
           <td>{{item.accumulatedQuantity}}</td>
-          <td>{{item.averagePrice}}</td>
-          <td>{{item.accumulatedPrice}}</td>
-          <!-- <td>123$</td>
-          <td>1.850$</td>
+          <td>{{item.cost | currency: currency}}</td>
+          <td>{{item.totalCost | currency: currency}}</td>
+          <td>123$</td>
+          <!-- <td>1.850$</td>
           <td>35%</td>
           <td>650$</td>
           <td>4%</td> -->

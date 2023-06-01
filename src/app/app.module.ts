@@ -12,6 +12,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { PortfolioDetailComponent } from './pages/portfolio-detail/portfolio-detail.component';
+import { DashboardDetailComponent } from './pages/dashboard-detail/dashboard-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { PortfolioDetailComponent } from './pages/portfolio-detail/portfolio-det
     DashboardComponent,
     ProfileComponent,
     PortfolioComponent,
-    PortfolioDetailComponent
+    PortfolioDetailComponent,
+    DashboardDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -4,4 +4,5 @@ export interface IPortfolio {
     isActive: boolean;
     priority: number;
     dashboardId: number;
+    currency: string;
 }
