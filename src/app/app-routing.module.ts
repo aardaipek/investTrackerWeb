@@ -5,6 +5,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ActivityComponent } from './pages/activity/activity.component';
 import { PortfolioDetailComponent } from './pages/portfolio-detail/portfolio-detail.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'dashboard/:dashboardId/portfolio/:portfolioId/:currency', component: PortfolioDetailComponent },
   { path: 'dashboard/:id/portfolio/:id/activities', component: ActivityComponent },
   { path: 'dashboard/:id/portfolio', component: PortfolioComponent },
+  { path: 'auth/login', component: LoginComponent },
 ];
 
 @NgModule({

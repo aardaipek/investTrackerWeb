@@ -52,4 +52,9 @@ export class RequestService {
     const response = await this.sender(data,'http://localhost:3000/api/activity/create');
     return response;
   }
+
+  public async login(data: any): Promise<any> {
+    const response = await this.sender(data,'http://localhost:3000/api/auth/login');
+    return response;
+  }
 }
