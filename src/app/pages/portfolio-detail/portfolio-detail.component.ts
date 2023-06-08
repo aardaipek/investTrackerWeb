@@ -4,6 +4,7 @@ import { RequestService } from 'src/app/utils/request.service';
 import { Location } from '@angular/common'
 
 
+
 @Component({
   selector: 'app-portfolio-detail',
   templateUrl: './portfolio-detail.component.html',
@@ -13,6 +14,7 @@ export class PortfolioDetailComponent implements OnInit {
   activities: any[] = [];
   averagePrices: any = [];
   portfolioId: string = "0";
+  currency: string = "TRY";
   dashboardId: string = "0";
   private sub: any;
 
@@ -22,9 +24,11 @@ export class PortfolioDetailComponent implements OnInit {
     this.sub = await this.route.params.subscribe(params => {
       this.portfolioId = params['portfolioId'];
       this.dashboardId = params['dashboardId'];
+      this.currency = params['currency'];
    });
     this.activities = await this.requestService.getAllActivities(this.portfolioId);
     this.calculate(this.activities);
+
   }
 
   async ngOnDestroy() {
@@ -39,14 +43,14 @@ export class PortfolioDetailComponent implements OnInit {
       if (!existingActivity) {
         this.averagePrices.push({
           name,
-          accumulatedPrice: price * quantity,
+          totalCost: price * quantity,
           accumulatedQuantity: quantity,
-          averagePrice: price
+          cost: price
         });
       } else {
-        existingActivity.accumulatedPrice += price * quantity;
+        existingActivity.totalCost += price * quantity;
         existingActivity.accumulatedQuantity += quantity;
-        existingActivity.averagePrice = existingActivity.accumulatedPrice / existingActivity.accumulatedQuantity;
+        existingActivity.cost = existingActivity.totalCost / existingActivity.accumulatedQuantity;
       }
     }    
   }
