@@ -22,6 +22,7 @@ export class AuthService {
   async login(email:string, password:string) {
     const result = await this.requestService.login({email: email, password: password});
     localStorage.setItem('accessToken', result.token);
+    localStorage.setItem('email', email);
     this.loggedIn.next(true);
     this.email.next(email);
     return true
